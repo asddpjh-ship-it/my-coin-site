@@ -1,91 +1,75 @@
-﻿'use client';
-
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
+﻿import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
-    <main className="relative min-h-screen bg-black text-white overflow-hidden font-sans">
-      {/* 배경 이미지 */}
-      <div className="absolute inset-0 -z-10">
+    <main className="relative min-h-screen overflow-hidden">
+      {/* ==== Background ==== */}
+      <div className="absolute inset-0">
         <Image
           src="/coin-hero.webp"
-          alt="Hantang Hero"
-          layout="fill"
-          objectFit="cover"
-          quality={90}
+          alt="Hantang hero background"
+          fill
           priority
-          className="opacity-30 blur-sm"
+          className="object-cover"
+          sizes="100vw"
         />
-        {/* 배경 어두운 오버레이 */}
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_40%_at_50%_12%,rgba(255,255,255,0.16)_0%,rgba(0,0,0,0)_60%)]" />
+        {/* <div className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay bg-[url('/grain.png')]" /> */}
       </div>
 
-      {/* 콘텐츠 */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-6">
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white drop-shadow-[0_0_20px_#00ffc8] animate-pulse">
+      {/* ==== Top Nav ==== */}
+      <header className="relative z-10 flex items-center justify-between px-6 py-5">
+        <Link href="/" className="text-white/90 font-bold tracking-wide hover:text-white">
           Hantang
+        </Link>
+        <nav className="hidden sm:flex items-center gap-6 text-sm">
+          <Link href="/tokenomics" className="link-soft">Tokenomics</Link>
+          <Link href="/team" className="link-soft">Team</Link>
+          <Link href="/roadmap" className="link-soft">Roadmap</Link>
+        </nav>
+      </header>
+
+      {/* ==== Hero ==== */}
+      <section className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-10 pb-20 min-h-[calc(100vh-88px)]">
+        <div className="floating-badge">Community-first meme coin</div>
+
+        <h1 className="mt-3 text-4xl sm:text-6xl md:text-7xl font-extrabold text-white neon">
+          The Face of <span className="text-yellow-300 glow">Hantang</span>
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-2xl">
-          Korea-powered meme coin riding the wave of history and humor — bold, fast, and unstoppable.
+
+        <p className="mt-4 max-w-2xl text-base sm:text-lg md:text-xl text-white/85">
+          Simple, bold, unstoppable. Built for the culture—powered by the community.
         </p>
 
-        {/* CTA 버튼 */}
-        <div className="mt-8 flex gap-4 flex-wrap justify-center">
-          <Link
-            href="/tokenomics"
-            className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold hover:scale-105 transition-transform shadow-[0_0_20px_#00ffc8] hover:shadow-[0_0_30px_#00ffc8]"
-          >
+        <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <Link href="/tokenomics" className="btn-primary">
             View Tokenomics
           </Link>
-          <Link
+          <a
             href="https://t.me/your_telegram"
             target="_blank"
-            className="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 backdrop-blur-sm transition"
+            rel="noopener noreferrer"
+            className="btn-ghost"
           >
             Join Community
-          </Link>
+          </a>
         </div>
 
-        {/* 소셜/바로가기 배지 예시 */}
+        {/* Social / Quick links */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-xs text-white/70">
-          <a
-            href="https://twitter.com/your_x"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="chip"
-          >
+          <a href="https://twitter.com/your_x" target="_blank" rel="noopener noreferrer" className="chip">
             X (Twitter)
           </a>
-          <a
-            href="https://dexscreener.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="chip"
-          >
+          <a href="https://dexscreener.com" target="_blank" rel="noopener noreferrer" className="chip">
             Chart
           </a>
-          <a
-            href="https://t.me/your_telegram"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="chip"
-          >
+          <a href="https://t.me/your_telegram" target="_blank" rel="noopener noreferrer" className="chip">
             Telegram
           </a>
         </div>
-
-        {/* 부드러운 떠다니는 라벨 */}
-        <div className="absolute top-6 right-6 animate-bounce-slow text-xs bg-white/10 border border-white/20 px-3 py-1 rounded-full backdrop-blur-md shadow-lg">
-          2025's Most Viral Korean Meme Coin 🚀
-        </div>
-      </div>
+      </section>
     </main>
   );
 }
