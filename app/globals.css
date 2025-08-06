@@ -1,7 +1,53 @@
-﻿@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* optional: 기본 다크 배경/텍스트 */
-html, body { height: 100%; }
-body { background-color: #0b0b0f; color: #ffffff; }
+﻿/* === Hantang custom utilities & effects === */
+@layer utilities {
+    /* 링크 부드러운 호버 */
+    .link-soft { @apply text-white/80 hover:text-white transition; }
+  
+    /* 네온 텍스트 */
+    .neon {
+      text-shadow:
+        0 0 8px rgba(255,255,255,.5),
+        0 0 24px rgba(255,215,0,.25);
+      animation: neonPulse 2.6s ease-in-out infinite;
+    }
+    .glow {
+      text-shadow:
+        0 0 12px rgba(250, 204, 21, .65),
+        0 0 32px rgba(250, 204, 21, .35);
+    }
+  
+    /* 글로시 프라이머리 버튼 + 웨이브 하이라이트 */
+    .btn-primary {
+      @apply relative inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold
+             text-black bg-yellow-400 hover:bg-yellow-300 transition shadow-lg;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .btn-primary::before {
+      /* 유리광택 하이라이트 */
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,255,255,0) 55%);
+      mix-blend-mode: soft-light;
+      opacity: .5;
+      pointer-events: none;
+    }
+    .btn-primary::after {
+      /* 웨이브처럼 좌→우 빛이 스치듯 */
+      content: "";
+      position: absolute;
+      top: -150%;
+      left: -30%;
+      width: 60%;
+      height: 400%;
+      background: radial-gradient(40% 20% at 50% 50%, rgba(255,255,255,.45), rgba(255,255,255,0) 70%);
+      transform: rotate(25deg);
+      animation: sweep 3.2s cubic-bezier(.22,.61,.36,1) infinite;
+      pointer-events: none;
+    }
+  
+    /* 고스트 버튼 (투명 + 보더 글로우) */
+    .btn-ghost {
+      @apply relative inline-flex items-center justify-center px-6
+  

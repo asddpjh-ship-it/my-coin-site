@@ -7,66 +7,61 @@ export default function Home() {
       {/* 배경 이미지 */}
       <div className="absolute inset-0">
         <Image
-          src="/coin-hero.jpg"           // public/coin-hero.jpg
-          alt="Project hero background"
+          src="/coin-hero.jpg" // /public/coin-hero.jpg
+          alt="Hantang hero background"
           fill
           priority
           className="object-cover"
           sizes="100vw"
         />
-        {/* 그라데이션+어둡게 오버레이 */}
+        {/* 어둡게 + 라디얼 오버레이 */}
         <div className="absolute inset-0 bg-black/60" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_40%_at_50%_10%,rgba(255,255,255,0.12)_0%,rgba(0,0,0,0.0)_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_40%_at_50%_12%,rgba(255,255,255,0.16)_0%,rgba(0,0,0,0)_60%)]" />
+        {/* 그레인 효과(아주 약하게) */}
+        <div className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay bg-[url('/grain.png')]" />
       </div>
 
-      {/* 상단 네비게이션 */}
+      {/* 네비게이션 */}
       <header className="relative z-10 flex items-center justify-between px-6 py-5">
-        <Link href="/" className="text-white/90 font-bold tracking-wide">
-          CryptoNova
-        </Link>
+        <Link href="/" className="text-white/90 font-bold tracking-wide hover:text-white">Hantang</Link>
         <nav className="hidden sm:flex items-center gap-6 text-sm">
-          <Link href="/tokenomics" className="text-white/80 hover:text-white transition">Tokenomics</Link>
-          <Link href="/team" className="text-white/80 hover:text-white transition">Team</Link>
-          <Link href="/roadmap" className="text-white/80 hover:text-white transition">Roadmap</Link>
+          <Link href="/tokenomics" className="link-soft">Tokenomics</Link>
+          <Link href="/team" className="link-soft">Team</Link>
+          <Link href="/roadmap" className="link-soft">Roadmap</Link>
         </nav>
       </header>
 
-      {/* 히어로 섹션 */}
-      <section className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-12 pb-20 sm:pt-16 min-h-[calc(100vh-80px)]">
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
-          The Face of <span className="text-yellow-400">CryptoNova</span>
+      {/* 히어로 */}
+      <section className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-10 pb-20 min-h-[calc(100vh-88px)]">
+        {/* 떠다니는 라벨 */}
+        <div className="floating-badge">Community-first meme coin</div>
+
+        <h1 className="mt-3 text-4xl sm:text-6xl md:text-7xl font-extrabold text-white neon">
+          The Face of <span className="text-yellow-300 glow">Hantang</span>
         </h1>
+
         <p className="mt-4 max-w-2xl text-base sm:text-lg md:text-xl text-white/85">
-          Community-first meme coin on Web3—simple, bold, and unstoppable.
+          Simple, bold, unstoppable. Built for the culture—powered by the community.
         </p>
 
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
-          <Link
-            href="/tokenomics"
-            className="px-6 py-3 rounded-xl font-semibold bg-yellow-400 text-black shadow hover:bg-yellow-300 transition"
-          >
+          {/* 메인 CTA: 글로시 + 웨이브 하이라이트 */}
+          <Link href="/tokenomics" className="btn-primary">
             View Tokenomics
           </Link>
+
+          {/* 서브 CTA: 글로시 보더 */}
           <a
-            href="https://t.me/your_telegram" // 커뮤니티 링크로 교체
+            href="https://t.me/your_telegram"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-xl font-semibold border border-white/30 text-white/90 hover:bg-white/10 transition"
+            className="btn-ghost"
           >
             Join Community
           </a>
         </div>
 
-        {/* 하단 배지/CTA 보조 영역 (원하면 수정/삭제) */}
+        {/* 소셜/바로가기 배지 예시 */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-xs text-white/70">
-          <span className="rounded-full border border-white/20 px-3 py-1 backdrop-blur">
-            Built on Next.js + Tailwind
-          </span>
-          <span className="rounded-full border border-white/20 px-3 py-1 backdrop-blur">
-            Deployed on Vercel
-          </span>
-        </div>
-      </section>
-    </main>
-  );
-}
+          <a href="https://twitter.com/your_x" target="_blank" className="chip">X (Twitter)</a>
+          <a href="https://dexscreener.com
