@@ -18,7 +18,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/60" />
         {/* Soft radial highlight */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_40%_at_50%_12%,rgba(255,255,255,0.16)_0%,rgba(0,0,0,0)_60%)]" />
-        {/* (optional) grain texture; remove if you don't have /public/grain.png */}
+        {/* (optional) grain texture; remove or keep as is if you don't have /public/grain.png */}
         {/* <div className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay bg-[url('/grain.png')]" /> */}
       </div>
 
@@ -60,7 +60,7 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Social / Quick links (safe & closed strings) */}
+        {/* Social / Quick links */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-xs text-white/70">
           <a href="https://twitter.com/your_x" target="_blank" rel="noopener noreferrer" className="chip">
             X (Twitter)
@@ -68,4 +68,11 @@ export default function Home() {
           <a href="https://dexscreener.com" target="_blank" rel="noopener noreferrer" className="chip">
             Chart
           </a>
-          <a href="https://t.me/your_telegram" target="_blank" rel="noopener noreferrer
+          <a href="https://t.me/your_telegram" target="_blank" rel="noopener noreferrer" className="chip">
+            Telegram
+          </a>
+        </div>
+      </section>
+    </main>
+  );
+}
