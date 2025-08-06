@@ -7,7 +7,7 @@ export default function Home() {
       {/* ==== Background ==== */}
       <div className="absolute inset-0">
         <Image
-          src="/coin-hero.webp"       // /public/coin-hero.webp
+          src="/coin-hero.webp" /* /public/coin-hero.webp */
           alt="Hantang hero background"
           fill
           priority
@@ -18,7 +18,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/60" />
         {/* Soft radial highlight */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_40%_at_50%_12%,rgba(255,255,255,0.16)_0%,rgba(0,0,0,0)_60%)]" />
-        {/* (optional) grain texture; remove or keep as is if you don't have /public/grain.png */}
+        {/* (optional) grain; /public/grain.png 없으면 이 라인은 주석 유지 또는 삭제 */}
         {/* <div className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay bg-[url('/grain.png')]" /> */}
       </div>
 
@@ -62,13 +62,28 @@ export default function Home() {
 
         {/* Social / Quick links */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-xs text-white/70">
-          <a href="https://twitter.com/your_x" target="_blank" rel="noopener noreferrer" className="chip">
+          <a
+            href="https://twitter.com/your_x"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="chip"
+          >
             X (Twitter)
           </a>
-          <a href="https://dexscreener.com" target="_blank" rel="noopener noreferrer" className="chip">
+          <a
+            href="https://dexscreener.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="chip"
+          >
             Chart
           </a>
-          <a href="https://t.me/your_telegram" target="_blank" rel="noopener noreferrer" className="chip">
+          <a
+            href="https://t.me/your_telegram"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="chip"
+          >
             Telegram
           </a>
         </div>
