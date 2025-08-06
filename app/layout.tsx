@@ -2,7 +2,7 @@
 
 export const metadata = {
   title: "CryptoNova",
-  description: "The next generation decentralized token",
+  description: "Community-first meme coin on Web3.",
 };
 
 export default function RootLayout({
