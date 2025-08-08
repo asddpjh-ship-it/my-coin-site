@@ -2,111 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 기본 배경/텍스트 */
-html, body { height: 100%; }
-body { background: #000; color: #fff; }
-
-/* =======================
-   Hantang custom utilities
-   ======================= */
 @layer utilities {
-  /* 상단 내비 링크 */
-  .link-soft { @apply text-white/80 hover:text-white transition; }
-
-  /* 네온 텍스트 효과 */
-  .neon {
-    text-shadow:
-      0 0 8px rgba(255,255,255,.5),
-      0 0 24px rgba(255,215,0,.25);
-    animation: neonPulse 2.6s ease-in-out infinite;
-  }
-  .glow {
-    text-shadow:
-      0 0 12px rgba(250,204,21,.65),
-      0 0 32px rgba(250,204,21,.35);
+  .neon-text {
+    @apply text-black drop-shadow-[0_0_6px_rgba(255,204,0,0.8)];
   }
 
-  /* 글로시 프라이머리 버튼 + 웨이브 하이라이트 */
-  .btn-primary {
-    @apply relative inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold
-           text-black bg-yellow-400 hover:bg-yellow-300 transition shadow-lg;
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .btn-primary::before {
-    /* 유리광택 */
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,255,255,0) 55%);
-    mix-blend-mode: soft-light;
-    opacity: .5;
-    pointer-events: none;
-  }
-  .btn-primary::after {
-    /* 좌→우 스윕 하이라이트 */
-    content: "";
-    position: absolute;
-    top: -150%;
-    left: -30%;
-    width: 60%;
-    height: 400%;
-    background: radial-gradient(40% 20% at 50% 50%, rgba(255,255,255,.45), rgba(255,255,255,0) 70%);
-    transform: rotate(25deg);
-    animation: sweep 3.2s cubic-bezier(.22,.61,.36,1) infinite;
-    pointer-events: none;
+  .btn-glow {
+    @apply relative inline-flex items-center justify-center px-6 py-3 font-bold text-black bg-yellow-300 rounded-xl shadow-md transition-all hover:scale-105 hover:bg-yellow-400;
   }
 
-  /* 고스트 버튼 (투명 + 보더 글로우) */
   .btn-ghost {
-    @apply relative inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold
-           text-white/90 border border-white/30 hover:bg-white/10 transition backdrop-blur;
-  }
-  .btn-ghost::after {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: inherit;
-    background: conic-gradient(from 180deg, rgba(255,255,255,.15), rgba(255,255,255,0) 40%, rgba(255,255,255,.15));
-    filter: blur(8px);
-    opacity: .35;
-    z-index: -1;
+    @apply relative inline-flex items-center justify-center px-6 py-3 font-bold text-black border border-black rounded-xl transition-all hover:bg-black hover:text-white;
   }
 
-  /* 칩/배지 */
-  .chip { @apply rounded-full border border-white/20 px-3 py-1 backdrop-blur hover:bg-white/10 transition; }
-
-  /* 떠다니는 작은 배지 */
-  .floating-badge {
-    @apply inline-flex items-center rounded-full border border-white/20 px-3 py-1 text-xs text-white/80 bg-black/30 backdrop-blur;
-    animation: float 6s ease-in-out infinite;
-  }
-}
-
-/* =======================
-   Keyframes
-   ======================= */
-@keyframes neonPulse {
-  0%, 100% { filter: brightness(1); }
-  50%      { filter: brightness(1.15); }
-}
-
-@keyframes sweep {
-  0%   { transform: translateX(-120%) rotate(25deg); opacity: .0; }
-  15%  { opacity: .55; }
-  40%  { transform: translateX(220%) rotate(25deg); opacity: .0; }
-  100% { transform: translateX(220%) rotate(25deg); opacity: .0; }
-}
-
-@keyframes float {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-6px); }
-  100% { transform: translateY(0px); }
-}
-
-/* 접근성: 모션 최소화 선호 시 애니메이션 약화 */
-@media (prefers-reduced-motion: reduce) {
-  .neon, .floating-badge, .btn-primary::after {
-    animation: none !important;
+  .chip {
+    @apply px-3 py-1 rounded-full border border-black bg-white/80 hover:bg-yellow-100 transition;
   }
 }
